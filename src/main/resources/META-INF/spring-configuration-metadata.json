@@ -1,0 +1,134 @@
+{
+  "groups": [
+    {
+      "name": "feign.client",
+      "type": "org.springframework.cloud.openfeign.FeignClientProperties",
+      "sourceType": "org.springframework.cloud.openfeign.FeignClientProperties"
+    },
+    {
+      "name": "feign.compression.request",
+      "type": "org.springframework.cloud.openfeign.encoding.FeignClientEncodingProperties",
+      "sourceType": "org.springframework.cloud.openfeign.encoding.FeignClientEncodingProperties"
+    },
+    {
+      "name": "feign.httpclient",
+      "type": "org.springframework.cloud.openfeign.support.FeignHttpClientProperties",
+      "sourceType": "org.springframework.cloud.openfeign.support.FeignHttpClientProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "feign.client.config",
+      "type": "java.util.Map<java.lang.String,org.springframework.cloud.openfeign.FeignClientProperties.FeignClientConfiguration>",
+      "sourceType": "org.springframework.cloud.openfeign.FeignClientProperties"
+    },
+    {
+      "name": "feign.client.default-config",
+      "type": "java.lang.String",
+      "sourceType": "org.springframework.cloud.openfeign.FeignClientProperties",
+      "defaultValue": "default"
+    },
+    {
+      "name": "feign.client.default-to-properties",
+      "type": "java.lang.Boolean",
+      "sourceType": "org.springframework.cloud.openfeign.FeignClientProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "feign.compression.request.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Enables the request sent by Feign to be compressed.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "feign.compression.request.mime-types",
+      "type": "java.lang.String[]",
+      "description": "The list of supported mime types.",
+      "sourceType": "org.springframework.cloud.openfeign.encoding.FeignClientEncodingProperties",
+      "defaultValue": [
+        "text\/xml",
+        "application\/xml",
+        "application\/json"
+      ]
+    },
+    {
+      "name": "feign.compression.request.min-request-size",
+      "type": "java.lang.Integer",
+      "description": "The minimum threshold content size.",
+      "sourceType": "org.springframework.cloud.openfeign.encoding.FeignClientEncodingProperties",
+      "defaultValue": 2048
+    },
+    {
+      "name": "feign.compression.response.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Enables the response from Feign to be compressed.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "feign.httpclient.connection-timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "org.springframework.cloud.openfeign.support.FeignHttpClientProperties",
+      "defaultValue": 2000
+    },
+    {
+      "name": "feign.httpclient.connection-timer-repeat",
+      "type": "java.lang.Integer",
+      "sourceType": "org.springframework.cloud.openfeign.support.FeignHttpClientProperties",
+      "defaultValue": 3000
+    },
+    {
+      "name": "feign.httpclient.disable-ssl-validation",
+      "type": "java.lang.Boolean",
+      "sourceType": "org.springframework.cloud.openfeign.support.FeignHttpClientProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "feign.httpclient.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Enables the use of the Apache HTTP Client by Feign.",
+      "defaultValue": "true"
+    },
+    {
+      "name": "feign.httpclient.follow-redirects",
+      "type": "java.lang.Boolean",
+      "sourceType": "org.springframework.cloud.openfeign.support.FeignHttpClientProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "feign.httpclient.max-connections",
+      "type": "java.lang.Integer",
+      "sourceType": "org.springframework.cloud.openfeign.support.FeignHttpClientProperties",
+      "defaultValue": 200
+    },
+    {
+      "name": "feign.httpclient.max-connections-per-route",
+      "type": "java.lang.Integer",
+      "sourceType": "org.springframework.cloud.openfeign.support.FeignHttpClientProperties",
+      "defaultValue": 50
+    },
+    {
+      "name": "feign.httpclient.time-to-live",
+      "type": "java.lang.Long",
+      "sourceType": "org.springframework.cloud.openfeign.support.FeignHttpClientProperties",
+      "defaultValue": 900
+    },
+    {
+      "name": "feign.httpclient.time-to-live-unit",
+      "type": "java.util.concurrent.TimeUnit",
+      "sourceType": "org.springframework.cloud.openfeign.support.FeignHttpClientProperties"
+    },
+    {
+      "name": "feign.hystrix.enabled",
+      "type": "java.lang.Boolean",
+      "description": "If true, an OpenFeign client will be wrapped with a Hystrix circuit breaker.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "feign.okhttp.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Enables the use of the OK HTTP Client by Feign.",
+      "defaultValue": "false"
+    }
+  ],
+  "hints": []
+}
