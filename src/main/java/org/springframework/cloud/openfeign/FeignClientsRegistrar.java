@@ -171,6 +171,7 @@ class FeignClientsRegistrar
 
 		Set<String> basePackages;
 
+		// 这里 EnableFeignClients 注解，主要是为了获取 basePackages 设置我们需要扫描哪些包
 		Map<String, Object> attrs = metadata.getAnnotationAttributes(EnableFeignClients.class.getName());
 		AnnotationTypeFilter annotationTypeFilter = new AnnotationTypeFilter(FeignClient.class);
 		final Class<?>[] clients = attrs == null ? null : (Class<?>[]) attrs.get("clients");
@@ -184,6 +185,7 @@ class FeignClientsRegistrar
 				basePackages.add(ClassUtils.getPackageName(clazz));
 				clientClasses.add(clazz.getCanonicalName());
 			}
+			// 这里不知道干啥的，我自己搞的时候，把 clients 去掉了，不支持。
 			AbstractClassTestingTypeFilter filter = new AbstractClassTestingTypeFilter() {
 				@Override
 				protected boolean match(ClassMetadata metadata) {
@@ -307,11 +309,15 @@ class FeignClientsRegistrar
 	}
 
 	protected ClassPathScanningCandidateComponentProvider getScanner() {
+		// 这里的 useDefaultFilters = false, 意思是，我们自己实现 includeFilters，自己告诉它，我们需要过滤的内容；
+		// 因为我们这里只需要过滤带有我们注解的类，所以这里设置成 false;
 		return new ClassPathScanningCandidateComponentProvider(false, this.environment) {
 			@Override
 			protected boolean isCandidateComponent(AnnotatedBeanDefinition beanDefinition) {
 				boolean isCandidate = false;
+				// 这里需要一个正常的类，对于内部类，嵌套类不处理
 				if (beanDefinition.getMetadata().isIndependent()) {
+					// 对于注解的类也不处理
 					if (!beanDefinition.getMetadata().isAnnotation()) {
 						isCandidate = true;
 					}
